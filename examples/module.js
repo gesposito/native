@@ -37,15 +37,15 @@ var Component = React.createClass({
   },
 
   render: function() {
+    /*
+      moment API stays just the same, any Module that doesn't depend upon Node or Browsers APIs is compatible with React Native
+      One exception is luckly XHR that has been polyfilled
+    */
     return (
       <ScrollView>
 
         <View style={styles.ago}>
           <Text>
-            /*
-              moment API stays just the same, any Module that doesn't depend upon Node or Browsers APIs is compatible with React Native
-              One exception is luckly XHR that has been polyfilled 
-            */
             {'Last refresh: '}
             {moment().format("HH:mm")}
           </Text>

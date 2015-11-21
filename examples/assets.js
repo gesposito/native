@@ -13,21 +13,21 @@ var {
 */
 var Component = React.createClass({
   render: function() {
+    /*
+      They can both be declared with an URI for remote loading
+
+      Or with a local path, since v0.14 they can sit among your Code, and they are loaded as soon as you hit Refresh
+      Try to change cm.png to cm2.png, then take a second to compare it with Native development where you might need to recompile
+    */
     return (
       <View style={styles.flexContainer}>
-
         <View style={styles.flexItem}>
 
-          // They can both be declared with an URI for remote loading
           <Image
             style={styles.flexImage}
             source={{uri: 'http://i.imgur.com/YWRpWml.png'}}
           />
 
-          /*
-            Or with a local path, since v0.14 they can sit among your Code, and they are loaded as soon as you hit Refresh
-            Try to change cm.png to cm2.png, then take a second to compare it with Native development where you might need to recompile
-          */
           <Image
             style={styles.flexImage}
             source={require('../img/cm.png')}
