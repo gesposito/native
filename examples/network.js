@@ -39,7 +39,6 @@ var Component = React.createClass({
 
   render: function() {
     // Here we moved our entire View into its own Component that will receive data from its props
-    
     return (
       <ScrollView>
 
