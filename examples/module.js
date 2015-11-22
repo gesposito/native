@@ -51,13 +51,11 @@ var Component = React.createClass({
           </Text>
         </View>
 
-
         {(this.state.list).map((speaker, index) => {
           return <Row key={index} {...speaker} />
         })}
 
       </ScrollView>
-
     );
   }
 });
