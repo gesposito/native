@@ -1,6 +1,6 @@
 # [It's time to go Native (with JavaScript and React Native)](http://www.esposi.to/native/)
 
-This repository contains code from my slides for [Codemotion Milan 2015 Conference](http://milan2015.codemotionworld.com/conference/)
+This repository contains code originally developed for my [Codemotion Milan 2015 Conference](http://milan2015.codemotionworld.com/conference/) slides
 
 I also developed a Conference App (mostly a proof of concept):
 [Codemotion Milan 2015 App](https://github.com/gesposito/CodemotionMilan2015)
@@ -14,14 +14,10 @@ Then, inside this project:
 
 ## How to run
 
-**To run the iOS app:**
+**To run your app on iOS:**
 
-- Open `ios/CodemotionAwesomeProject.xcodeproj` and hit run in Xcode.
-- Open `index.ios.js` in your text editor of choice and edit some lines.
-- Hit ⌘-R in your iOS simulator to reload the app and see your change!
+- `react-native run-ios`
 
-**To run the Android app:**
+**To run your app on Android:**
 
 - `react-native run-android`
-- Open `index.android.js` in your text editor of choice and edit some lines.
-- Press the menu button (F2 by default, or ⌘-M in Genymotion) and select *Reload JS* to see your change!

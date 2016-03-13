@@ -1,26 +1,25 @@
 'use strict';
-
-var React = require('react-native');
-var {
+import React, {
   AppRegistry,
-  View
-} = React;
+} from 'react-native';
 
-var CodemotionAwesomeProject = React.createClass({
-  render: function() {
+const CodemotionAwesomeProject = React.createClass({
+  render() {
     return (
       <Empty />
     );
-  }
+  },
+
 });
 
 // We'll walk through all the examples by switching the rendered Component
-var Empty = require('./examples/empty');
-var Style = require('./examples/style');
-var Flex = require('./examples/flex');
-var Assets = require('./examples/assets');
-var Network = require('./examples/network');
-var Module = require('./examples/module');
+import Empty from './examples/empty';
+import Style from './examples/style';
+import Flex from  './examples/flex';
+import Assets from './examples/assets';
+import Network from './examples/network';
+// This needs `npm install -S moment` (left out for showing live-reload)
+// import Module from './examples/module';
 
 // Entry point for React Native
 AppRegistry.registerComponent('CodemotionAwesomeProject', () => CodemotionAwesomeProject);
