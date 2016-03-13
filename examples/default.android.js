@@ -4,7 +4,7 @@
  */
 'use strict';
 
-var React = require('react-native');
+import React from 'react-native';
 var {
   AppRegistry,
   StyleSheet,
@@ -13,7 +13,7 @@ var {
 } = React;
 
 var CodemotionAwesomeProject = React.createClass({
-  render: function() {
+  render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>

@@ -1,43 +1,14 @@
 'use strict';
 
-var React = require('react-native');
-var {
+import React, {
   StyleSheet,
   View,
   Text,
   Image,
-  TouchableOpacity
-} = React;
+  TouchableOpacity,
+} from 'react-native';
 
-var Row = React.createClass({
-
-  render: function() {
-    return (
-      <TouchableOpacity style={styles.flexContainer} onPress={()=>{
-          //debugger;
-          console.log(this.props);
-        }}>
-        <View style={styles.flexItem}>
-
-          <Image
-            style={styles.flexImage}
-            source={{uri: this.props.liquid_image}}
-          />
-
-        </View>
-        <View style={styles.flexItem2}>
-          <Text style={styles.content}>
-            {this.props.titlepost_value}
-          </Text>
-        </View>
-      </TouchableOpacity>
-    );
-  }
-
-});
-
-
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   flexContainer: {
     top: 20,
     padding: 20,
@@ -48,7 +19,7 @@ var styles = StyleSheet.create({
   },
 
   flexItem: {
-    flex: 1
+    flex: 1,
   },
 
   flexImage: {
@@ -56,15 +27,44 @@ var styles = StyleSheet.create({
     height: 40,
     borderRadius: 20,
     borderWidth: 2,
-    borderColor: '#FF5C00'
+    borderColor: '#FF5C00',
   },
 
   flexItem2: {
-    flex: 2
+    flex: 2,
   },
 
   flexContent: {
     textAlign: 'center',
+  },
+
+});
+
+const Row = React.createClass({
+  render() {
+    return (
+      <TouchableOpacity
+        style={styles.flexContainer}
+        onPress={() => {
+          // Uncomment to test the Dev Tools
+          // debugger;
+          console.log(this.props);
+        }}
+      >
+        <View style={styles.flexItem}>
+          <Image
+            style={styles.flexImage}
+            source={{ uri: this.props.liquid_image }}
+          />
+        </View>
+
+        <View style={styles.flexItem2}>
+          <Text style={styles.content}>
+            {this.props.titlepost_value}
+          </Text>
+        </View>
+      </TouchableOpacity>
+    );
   },
 
 });

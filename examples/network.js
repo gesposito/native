@@ -1,30 +1,30 @@
 'use strict';
 
-var React = require('react-native');
-var {
+import React, {
   StyleSheet,
   ScrollView,
-  View,
-  Text,
-  Image
-} = React;
+} from 'react-native';
 
-var Row = require('./row');
+const Row = require('./row');
+
+const API_URL = 'https://raw.githubusercontent.com/gesposito/codemotion_milan_2015_data/master/speakers.json';
 
 /*
- Although React Native provides a polyfill for XHR, the recommended way of doing Network calls is with the modern fetch API
+ Although React Native provides a polyfill for XHR, the recommended way of doing Network calls
+ is with the much more modern `fetch` API
 */
-var Component = React.createClass({
-  getInitialState: function() {
+const Component = React.createClass({
+  getInitialState() {
     return {
-        list: []
-    }
+      list: [],
+    };
   },
 
-  componentDidMount: function() {
+  componentDidMount() {
     // fetch can be provided with the API endpoint, by default the method will be GET
     fetch(API_URL).then(
-      // Instead of your usual response it will return a Promise based Stream object, its content is then readed asynchronously
+      /* Instead of your usual response it will return a Promise based Stream object,
+        its content is then readed asynchronously */
       (response) => response.json()
     ).then((data) => {
       // An utility method will return the JSON response from the Stream object
@@ -32,31 +32,28 @@ var Component = React.createClass({
       // Uncomment to test the Dev Tools
       // debugger;
       this.setState({
-        list: data
-      })
+        list: data,
+      });
     });
   },
 
-  render: function() {
+  render() {
     // Here we moved our entire View into its own Component that will receive data from its props
     return (
       <ScrollView>
-
-        {(this.state.list).map((speaker, index) => {
-          return <Row key={index} {...speaker} />
-        })}
-
+        {(this.state.list).map(
+          (speaker, index) => <Row key={index} {...speaker} />
+        )}
       </ScrollView>
     );
-  }
+  },
+
 });
 
-var API_URL = "https://raw.githubusercontent.com/gesposito/codemotion_milan_2015_data/master/speakers.json";
-
-var debug = StyleSheet.create({
+const debug = StyleSheet.create({
   redBorder: {
     borderWidth: 1,
-    borderColor: 'red'
+    borderColor: 'red',
   },
 
 });

@@ -1,45 +1,56 @@
 'use strict';
 
-var React = require('react-native');
-var {
+import React, {
   StyleSheet,
   ScrollView,
   View,
   Text,
-  Image
-} = React;
+} from 'react-native';
 
-var Row = require('./row');
+const Row = require('./row');
+
+const API = 'https://raw.githubusercontent.com/gesposito/codemotion_milan_2015_data/master/speakers.json';
+
+const styles = StyleSheet.create({
+  ago: {
+    top: 20,
+    padding: 20,
+  },
+
+});
 
 /*
-  After installing any JavaScript or Native Module with npm, you can require and access them into your code.
-  Modules that don't include Native code will be immediately availabled upon refresh thanks to the packager.
+  After installing any JavaScript or Native Module with npm, you can require and access them
+  into your code. Modules that don't include Native code will be immediately availabled upon refresh
+  thanks to the packager.
+
   Here we're demo-ing moment:
   `npm install -S moment`
 */
-var moment = require('moment');
+const moment = require('moment');
 
-var Component = React.createClass({
-  getInitialState: function() {
+const Component = React.createClass({
+  getInitialState() {
     return {
-        list: []
-    }
+      list: [],
+    };
   },
 
-  componentDidMount: function() {
-      fetch(API).then(
-        (response) => response.json()
-      ).then((data) => {
-        this.setState({
-          list: data
-        })
+  componentDidMount() {
+    fetch(API).then(
+      (response) => response.json()
+    ).then((data) => {
+      this.setState({
+        list: data,
       });
+    });
   },
 
-  render: function() {
+  render() {
     /*
-      moment API stays just the same, any Module that doesn't depend upon Node or Browsers APIs is compatible with React Native
-      One exception is luckly XHR that has been polyfilled
+      `moment` API stays just the same, any Module that doesn't depend upon Node or Browsers APIs
+      is compatible with React Native.
+      One exception is luckly `XHR` that has been polyfilled.
     */
     return (
       <ScrollView>
@@ -47,36 +58,26 @@ var Component = React.createClass({
         <View style={styles.ago}>
           <Text>
             {'Last refresh: '}
-            {moment().format("HH:mm")}
+            {moment().format('HH:mm')}
           </Text>
         </View>
 
-        {(this.state.list).map((speaker, index) => {
-          return <Row key={index} {...speaker} />
-        })}
+        {(this.state.list).map(
+          (speaker, index) => <Row key={index} {...speaker} />
+        )}
 
       </ScrollView>
     );
-  }
+  },
+  
 });
 
-var API = "https://raw.githubusercontent.com/gesposito/codemotion_milan_2015_data/master/speakers.json";
-
-var styles = StyleSheet.create({
-  ago: {
-    top: 20,
-    padding: 20
-  }
-
-});
-
-var debug = StyleSheet.create({
+const debug = StyleSheet.create({
   redBorder: {
     borderWidth: 1,
-    borderColor: 'red'
+    borderColor: 'red',
   },
 
 });
-
 
 module.exports = Component;

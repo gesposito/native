@@ -1,17 +1,17 @@
 'use strict';
 
-var React = require('react-native');
-var {
-  View
-} = React;
+import React, {
+  View,
+} from 'react-native';
 
-// Here is the minimum viable Component
-var Component = React.createClass({
-  render: function() {
+// Here is the Minimum Viable Component
+const Component = React.createClass({
+  render() {
     return (
       <View />
     );
-  }
+  },
+
 });
 
 module.exports = Component;
